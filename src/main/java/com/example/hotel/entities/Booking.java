@@ -2,6 +2,7 @@ package com.example.hotel.entities;
 
 
 import com.example.hotel.enums.AdditionalOptions;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 public class Booking {
     @Id
     @GeneratedValue

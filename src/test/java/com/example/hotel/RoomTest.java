@@ -68,8 +68,8 @@ public class RoomTest {
     public void getAvailableRooms() {
         LocalDate start = LocalDate.of(2018, 11, 12);
         LocalDate end = LocalDate.of(2018, 11, 15);
-        Optional optional = roomRepository.findById(12);
-        Room room = (Room) optional.get();
+        Optional<Room> optional = roomRepository.findById(12);
+        Room room = optional.get();
         assertTrue(roomRepository.findRoomsOnDates(start, end).contains(room));
     }
 
