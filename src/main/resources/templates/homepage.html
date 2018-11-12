@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Hotel REST App. Documentation</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
 
@@ -17,31 +16,167 @@ This is simple REST Application for hotel booking service.
 
 </ul>
 
-<h2>Working with rooms</h2>
+<h2>Working with users</h2>
+<ol>
 
-<h3>Create new user</h3>
+    <li><h3>Create new user</h3></li>
 
-<div class="block1">http://localhost:8080/users/add</div>
+    <p><code>http://localhost:8080/users/add</code></p>
 
-<table class="pm-table">
+    <table border="1" bgcolor="#a9a9a9" width="500">
     <tr>
-        <th>Params</th>
-        <th>Example</th>
+        <th bgcolor="#f0f8ff">Params</th>
+        <th bgcolor="#f0f8ff">Example</th>
     </tr>
     <tr>
-        <td>login</td>
-        <td>?login=test</td>
+        <td bgcolor="#faebd7">login</td>
+        <td bgcolor="#faebd7">?login=test</td>
     </tr>
     <tr>
-        <td>name</td>
-        <td>&name=John</td>
+        <td bgcolor="#faebd7">name</td>
+        <td bgcolor="#faebd7">&name=John</td>
     </tr>
     <tr>
-        <td>lastName</td>
-        <td>&lastName=Doe</td>
+        <td bgcolor="#faebd7">lastName</td>
+        <td bgcolor="#faebd7">&lastName=Doe</td>
     </tr>
 </table>
 
+    <li><h3>Show all users</h3></li>
+    <code>http://localhost:8080/users/all</code>
+</ol>
+
+
+<h2>Working with rooms</h2>
+<ol>
+    <li><h3>Add new room</h3></li>
+    <p><code>http://localhost:8080/rooms/add</code></p>
+
+    <table border="1" bgcolor="#a9a9a9" width="500">
+        <tr>
+            <th bgcolor="#f0f8ff">Params</th>
+            <th bgcolor="#f0f8ff">Example</th>
+            <th bgcolor="#f0f8ff">Available values</th>
+        </tr>
+        <tr>
+            <td bgcolor="#faebd7">number</td>
+            <td bgcolor="#faebd7">?number=1</td>
+        </tr>
+        <tr>
+            <td bgcolor="#faebd7">type</td>
+            <td bgcolor="#faebd7">&type=Lux</td>
+            <td bgcolor="#faebd7">Econom, Standart, Lux, PresidentLux</td>
+        </tr>
+        <tr>
+            <td bgcolor="#faebd7">price</td>
+            <td bgcolor="#faebd7">&price=200</td>
+        </tr>
+    </table>
+
+    <li><h3>Get rooms</h3>
+        <ul>
+            <li><h4>All</h4></li>
+            <p><code>http://localhost:8080/rooms/all</code></p>
+
+            <li><h4>By room category</h4></li>
+            <p><code>http://localhost:8080/rooms/category</code></p>
+            <table border="1" bgcolor="#a9a9a9" width="500">
+                <tr>
+                    <th bgcolor="#f0f8ff">Params</th>
+                    <th bgcolor="#f0f8ff">Example</th>
+                    <th bgcolor="#f0f8ff">Available values</th>
+                </tr>
+                <tr>
+                    <td bgcolor="#faebd7">category</td>
+                    <td bgcolor="#faebd7">?type=Econom</td>
+                    <td bgcolor="#faebd7">Econom, Standart, Lux, PresidentLux</td>
+                </tr>
+            </table>
+
+            <li><h4>By price</h4></li>
+            <p><code>http://localhost:8080/rooms/price</code></p>
+            <table border="1" bgcolor="#a9a9a9" width="500">
+                <tr>
+                    <th bgcolor="#f0f8ff">Params</th>
+                    <th bgcolor="#f0f8ff">Example</th>
+                </tr>
+                <tr>
+                    <td bgcolor="#faebd7">price</td>
+                    <td bgcolor="#faebd7">?price=200</td>
+                </tr>
+            </table>
+            <li><h4>By dates</h4></li>
+            <p><code>http://localhost:8080/rooms/available</code></p>
+            <table border="1" bgcolor="#a9a9a9" width="500">
+                <tr>
+                    <th bgcolor="#f0f8ff">Params</th>
+                    <th bgcolor="#f0f8ff">Example</th>
+                </tr>
+                <tr>
+                    <td bgcolor="#faebd7">startDate</td>
+                    <td bgcolor="#faebd7">?startDate=2018-11-12</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#faebd7">endDate</td>
+                    <td bgcolor="#faebd7">?endDate=2018-11-15</td>
+                </tr>
+            </table>
+        </ul>
+    </li>
+</ol>
+
+
+<h2>Working with bookings</h2>
+<ol>
+    <li><h3>Book room</h3></li>
+    <p><code>http://localhost:8080/bookings/book</code></p>
+    <table border="1" bgcolor="#a9a9a9" width="500">
+        <tr>
+            <th bgcolor="#f0f8ff">Params</th>
+            <th bgcolor="#f0f8ff">Example</th>
+            <th bgcolor="#f0f8ff">Available values</th>
+        </tr>
+        <tr>
+            <td bgcolor="#faebd7">startDate</td>
+            <td bgcolor="#faebd7">?startDate=2018-11-12</td>
+        </tr>
+        <tr>
+            <td bgcolor="#faebd7">endDate</td>
+            <td bgcolor="#faebd7">?endDate=2018-11-15</td>
+        </tr>
+        <tr>
+            <td bgcolor="#faebd7">roomNumber</td>
+            <td bgcolor="#faebd7">?roomNumber=5</td>
+        </tr>
+        <tr>
+            <td bgcolor="#faebd7">login</td>
+            <td bgcolor="#faebd7">?login=user1</td>
+        </tr>
+        <tr>
+            <td bgcolor="#faebd7">options</td>
+            <td bgcolor="#faebd7">?options=UseSafe, Minibar</td>
+            <td bgcolor="#faebd7"> CleaningRoom, Safe, Telephone, Minibar, DryCleaning;</td>
+        </tr>
+
+    </table>
+
+    <li><h3>Get all bookings</h3></li>
+    <p><code>http://localhost:8080/bookings/all</code></p>
+
+    <li><h3>Get user bookings</h3></li>
+    <p><code>http://localhost:8080/bookings/user</code></p>
+    <table border="1" bgcolor="#a9a9a9" width="500">
+        <tr>
+            <th bgcolor="#f0f8ff">Params</th>
+            <th bgcolor="#f0f8ff">Example</th>
+        </tr>
+        <tr>
+            <td bgcolor="#faebd7">login</td>
+            <td bgcolor="#faebd7">?login=user1</td>
+        </tr>
+    </table>
+
+</ol>
 
 </body>
 </html>
