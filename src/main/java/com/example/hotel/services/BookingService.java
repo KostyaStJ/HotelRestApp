@@ -38,7 +38,7 @@ public class BookingService {
              booking.setStartDate(startDate);
              booking.setEndDate(endDate);
              booking.setOptions(options);
-             booking.setFinalPrice(finalPriceCounter(startDate, endDate, room, options));
+             booking.setFinalPrice(calculateFinalPrice(startDate, endDate, room, options));
 
              bookingRepository.save(booking);
              return booking;
@@ -55,11 +55,11 @@ public class BookingService {
      }
 
 
-     public double finalPriceCounter(LocalDate startDate, LocalDate endDate, Room room, List<AdditionalOptions> options){
+    private double calculateFinalPrice(LocalDate startDate, LocalDate endDate, Room room, List<AdditionalOptions> options) {
          long daysRange = DAYS.between(startDate, endDate) + 1;
          int allAdditionalOptionsPrice = 0;
-         for (int i = 0;i<options.size();i++){
-             allAdditionalOptionsPrice += options.get(i).getPrice();
+        for (AdditionalOptions option : options) {
+            allAdditionalOptionsPrice += option.getPrice();
          }
          return room.getPrice() * daysRange + allAdditionalOptionsPrice;
 

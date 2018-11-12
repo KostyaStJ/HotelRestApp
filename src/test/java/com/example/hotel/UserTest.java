@@ -37,6 +37,8 @@ public class UserTest {
 
         assertEquals(newUser, userOrigin);
 
+        userRepository.deleteById("test");
+
     }
 
     @Before

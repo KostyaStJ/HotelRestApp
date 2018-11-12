@@ -5,7 +5,6 @@ import com.example.hotel.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,7 +12,7 @@ import java.util.List;
 public class UserService {
     private final UserRepository userRepository;
 
-    public User createNewUser(String login, String name, String lastname){
+    public User createNewUser(String login, String name, String lastname) {
         User one = new User();
         one.setFirstName(name);
         one.setLastName(lastname);
@@ -23,10 +22,9 @@ public class UserService {
         return one;
     }
 
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return (List<User>) userRepository.findAll();
     }
-
 
 
 }
